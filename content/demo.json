@@ -1,0 +1,138 @@
+{
+  "notice": "Editable demonstration concepts. Illustrations are interface studies, not screenshots of shipped products. Prices are illustrative. No live demos, source downloads, customer reviews or checkout are represented as available.",
+  "projects": [
+    {
+      "id": 1, "slug": "ai-student-analyzer", "title": "AI Student Analyzer", "category": "AI / EDTECH", "technologies": ["React", "Django", "Python", "PostgreSQL"], "image": "/images/student-analyzer.svg", "accent": "#b8a6ff", "featured": true, "live_url": "https://student-ai-analyser-ochre.vercel.app/", "source_price": "499.00", "source_currency": "INR", "download_url": "/StudentAiAnalyser.zip",
+      "description": "Turning academic data into a clearer path forward. An intelligent workspace for student insights and personalized learning.",
+      "overview": "A concept for connecting academic records, learning patterns and explainable recommendations in one considered interface. The goal is to help educators see the person behind the numbers.",
+      "problem": "Academic records often live in disconnected spreadsheets. Identifying students who need support becomes a manual exercise, and aggregate scores hide the context that makes intervention useful.",
+      "solution": "A role-based analytics workspace that unifies student records, highlights trends and gives educators evidence-linked recommendations. AI assists interpretation while keeping final decisions with the educator.",
+      "features": ["Role-based educator and student workspaces", "Subject-level learning trend exploration", "Explainable AI recommendations with source context", "CSV ingestion with validation feedback", "Exportable student insight reports"],
+      "architecture": ["React analytics workspace", "Django REST API + role permissions", "Asynchronous analysis pipeline", "PostgreSQL academic records", "LLM adapter with structured outputs"],
+      "challenges": "The design challenge is balancing useful analysis with explainability. Recommendations should reference their input records, handle incomplete data explicitly and never reduce a student to a single opaque score.",
+      "api_overview": ["GET /api/students/ — scoped student directory", "GET /api/students/:id/insights/ — evidence-linked analysis", "POST /api/imports/ — validated academic data ingestion"],
+      "database": "Students, cohorts, subjects and assessments form the relational core. Insight records reference a versioned analysis run so generated recommendations can be audited against their input data.",
+      "lessons": "Concept development note: define the input-data contract before designing the model prompt. A clear schema makes missing values, lineage and human review much easier to handle."
+    },
+    {
+      "id": 2, "slug": "intelligent-coding-platform", "title": "Intelligent Coding Platform", "category": "DEVELOPER TOOLS", "technologies": ["React", "TypeScript", "Node.js", "PostgreSQL"], "image": "/images/coding-platform.svg", "accent": "#9ebedd", "featured": true,
+      "description": "A focused environment for deliberate practice. Write, reason and learn with context-aware coding assistance.",
+      "overview": "An interface and architecture concept for an online coding environment that values understanding over answer generation. Practice sessions connect code, test results and progressive hints.",
+      "problem": "Many practice platforms separate the editor, explanation and feedback into disconnected flows. Learners either get too little guidance or receive a complete answer before understanding the problem.",
+      "solution": "Keep the editor central, provide isolated test execution and introduce graduated hints that respond to the learner’s actual attempt. Make the reasoning behind a solution visible.",
+      "features": ["Distraction-free multi-pane editor", "Progressive AI hints instead of instant answers", "Isolated execution worker architecture", "Test-case explanations and comparison", "Saved practice sessions and notes"],
+      "architecture": ["React + TypeScript editor", "Node.js session API", "Queue-based execution requests", "Isolated, resource-limited worker", "PostgreSQL sessions and test definitions"],
+      "challenges": "Untrusted code execution requires a separate isolation boundary, strict resource budgets and controlled networking. This concept specifies that boundary without presenting browser-side execution as a production sandbox.",
+      "api_overview": ["GET /api/challenges/ — practice catalogue", "POST /api/runs/ — enqueue isolated execution", "POST /api/hints/ — contextual progressive guidance"],
+      "database": "Challenge versions, test cases, attempts and execution events are separated. A submitted attempt retains the challenge version it was evaluated against.",
+      "lessons": "Concept development note: feedback latency is part of the learning experience. Streaming execution states can make waiting understandable without disguising the underlying process."
+    },
+    {
+      "id": 3, "slug": "campus-ai-assistant", "title": "Campus AI Assistant", "category": "AI / CONVERSATIONAL", "technologies": ["React", "Django", "Python", "RAG"], "image": "/images/campus-assistant.svg", "accent": "#a9d5c4", "featured": true,
+      "description": "One conversation. An entire campus of knowledge. A grounded assistant for the questions students ask every day.",
+      "overview": "A retrieval-augmented assistant concept for finding information in campus handbooks, notices and service documents, with citations that make every answer checkable.",
+      "problem": "Students navigate scattered documents and outdated links for routine questions. A fluent chatbot without grounded sources can make the information problem worse.",
+      "solution": "Retrieve relevant passages from approved, versioned campus documents and compose answers with visible citations. Ask a clarifying question or acknowledge missing evidence when retrieval is weak.",
+      "features": ["Source-linked conversational answers", "Document ingestion and approval workflow", "Department-aware retrieval filters", "Helpful unanswered-question collection", "Accessible mobile-first conversation interface"],
+      "architecture": ["React conversational interface", "Django document and chat API", "Chunking and embedding pipeline", "PostgreSQL + vector extension", "Provider-independent LLM adapter"],
+      "challenges": "Document freshness is as important as semantic relevance. The system should prefer current, approved notices and preserve the publication dates and access permissions of retrieved sources.",
+      "api_overview": ["POST /api/conversations/ — start a session", "POST /api/conversations/:id/messages/ — grounded response", "GET /api/sources/:id/ — source metadata and excerpts"],
+      "database": "Documents have explicit versions and approval states. Chunks point back to their source version; answers retain citations and retrieval metadata.",
+      "lessons": "Concept development note: a trustworthy assistant needs an excellent ‘I don’t know’ state. Show what was searched and offer the appropriate campus contact."
+    },
+    {
+      "id": 4, "slug": "premium-3d-ecommerce", "title": "Premium 3D E-Commerce", "category": "COMMERCE / CREATIVE WEB", "technologies": ["React", "Three.js", "Django", "PostgreSQL"], "image": "/images/shophub-preview.jpg", "accent": "#c6ae94", "featured": true,
+      "live_url": "https://shophub-omega-nine.vercel.app/",
+      "description": "From browsing to experiencing. A product-first storefront with a new dimension of interaction.",
+      "overview": "A commerce concept that treats 3D as a useful product interaction rather than decoration. The visual experience is progressively enhanced over a fully usable product catalogue.",
+      "problem": "Conventional product imagery can hide material and shape, while heavy 3D experiences often delay the basic act of browsing and buying.",
+      "solution": "Load a fast image-first storefront, then invite visitors into an on-demand 3D product view. Keep product information, variants and purchase controls in familiar, accessible HTML.",
+      "features": ["Progressively enhanced product viewer", "Material and colour variant exploration", "Responsive catalogue and product discovery", "Server-calculated cart totals", "Payment-provider adapter architecture"],
+      "architecture": ["React storefront + lazy 3D viewer", "Django catalogue and order API", "PostgreSQL inventory and order records", "Verified payment webhook adapter", "Private asset delivery and image CDN"],
+      "challenges": "Maintaining frame rate on mobile requires device-aware geometry and texture budgets. Commerce state must remain independent of the rendering layer, including when WebGL is unavailable.",
+      "api_overview": ["GET /api/catalogue/ — published products", "POST /api/carts/ — server-validated cart", "POST /api/checkout/ — configured provider session"],
+      "database": "Products, variants and inventory are distinct entities. Order lines snapshot descriptions, currency and prices so historical orders remain accurate when the catalogue changes.",
+      "lessons": "Concept development note: the strongest immersive commerce still feels effortless. A beautiful viewer only earns its place if it clarifies the product."
+    },
+    {
+      "id": 8, "slug": "3d-fullstack-marriage-invitation", "title": "3D Fullstack Marriage Invitation", "category": "3D / INTERACTIVE EXPERIENCE", "technologies": ["React", "Three.js", "WebGL"], "image": "/images/marriage-invitation-preview.gif", "image_poster": "/images/marriage-invitation-poster.jpg", "accent": "#d4b780", "featured": true, "is_demo": false,
+      "live_url": "https://invitation-five-dun.vercel.app/",
+      "description": "An invitation that becomes a journey. Scroll through a 3D temple, discover the couple’s story, and celebrate a beautiful beginning.",
+      "overview": "An interactive marriage invitation combining a dimensional invitation cover, a scroll-driven temple journey, wedding celebrations, and guest participation in a warm, tradition-inspired experience.",
+      "problem": "A wedding invitation needs to convey the emotion of the celebration while making the couple’s story, event details, and guest responses easy to explore.",
+      "solution": "Introduce the celebration with an animated invitation, guide visitors through a 3D temple, then reveal the couple, their story, events, venue, gallery, and RSVP.",
+      "features": ["Animated 3D invitation cover", "Scroll-driven temple camera journey", "English and Tamil language controls", "Wedding story and celebration timeline", "RSVP and personal blessings", "Invitation sharing and calendar actions"],
+      "architecture": ["React invitation interface", "Three.js / WebGL temple scene", "Scroll-driven camera and section transitions", "Responsive invitation sections", "Browser-local RSVP and blessing storage"],
+      "challenges": "Keep the temple journey visually rich while preserving readable invitation details and comfortable navigation across screen sizes.",
+      "api_overview": [],
+      "database": "The live invitation saves guest responses and personal blessings in the visitor’s browser, with RSVP sharing through WhatsApp.",
+      "lessons": "Use 3D to tell the story: a gradual approach through the temple makes the transition from invitation to celebration feel personal."
+    },
+    {
+      "id": 5, "slug": "business-intelligence-assistant", "title": "Business Intelligence Assistant", "category": "AI / ANALYTICS", "technologies": ["React", "Python", "Django", "PostgreSQL"], "image": "/images/business-intelligence.svg", "accent": "#a5c7ee", "featured": true,
+      "description": "Better questions. Clearer answers. Explore business data through a thoughtful conversational analytics workspace.",
+      "overview": "A natural-language analytics concept that connects questions to governed datasets, readable visualizations and transparent query explanations.",
+      "problem": "Getting an answer from business data often requires moving between dashboards, SQL editors and spreadsheets. Unrestricted text-to-SQL introduces additional access-control and reliability problems.",
+      "solution": "Translate questions through a semantic layer with read-only, scoped data access. Present the resulting chart alongside assumptions, filters and an inspectable query explanation.",
+      "features": ["Natural-language data exploration", "Governed metric definitions", "Inspectable query plans and assumptions", "Saved analysis workspaces", "Role-scoped read-only connections"],
+      "architecture": ["React charting and conversation workspace", "Django query orchestration API", "Semantic metrics layer", "Read-only query validation and execution", "PostgreSQL analysis metadata"],
+      "challenges": "The assistant must distinguish an unsupported question from a query failure and avoid inventing a metric. Dataset permissions must be applied before retrieval or query generation.",
+      "api_overview": ["GET /api/datasets/ — permitted data sources", "POST /api/analyses/ — validated analysis request", "GET /api/analyses/:id/ — results and query explanation"],
+      "database": "Connections, metric definitions and saved analyses are versioned. Query runs retain execution limits and result metadata without duplicating sensitive source datasets unnecessarily.",
+      "lessons": "Concept development note: charts are only as helpful as the definitions behind them. Surface time ranges, aggregation rules and missing data next to the answer."
+    },
+    {
+      "id": 6, "slug": "social-media-automation", "title": "Social Media Automation Platform", "category": "SAAS / AUTOMATION", "technologies": ["React", "Node.js", "Python", "MongoDB"], "image": "/images/social-automation.svg", "accent": "#d6b4cd", "featured": true,
+      "description": "A calmer content workflow. Plan, collaborate and publish from a single purpose-built creative workspace.",
+      "overview": "A content-operations concept combining a visual editorial calendar with approval workflows and provider-specific publishing adapters.",
+      "problem": "Teams juggle drafts, assets, approvals and publishing across multiple tools. Scheduling failures become hard to investigate when each platform reports a different status.",
+      "solution": "Model the publishing lifecycle explicitly, from draft through approval to a provider-confirmed result. Centralize creative work while preserving each platform’s requirements.",
+      "features": ["Visual cross-channel editorial calendar", "AI-assisted draft variations", "Asset library and team approvals", "Timezone-aware scheduling", "Provider-confirmed publishing audit trail"],
+      "architecture": ["React calendar and drafting workspace", "Node.js campaign API", "Scheduled job queue", "Per-provider OAuth publishing adapters", "MongoDB content and event history"],
+      "challenges": "Retries must be idempotent to prevent duplicate posts. Rate limits, expired permissions and provider outages need distinct states, and a queued post must never appear as published.",
+      "api_overview": ["GET /api/calendar/ — scheduled content", "POST /api/posts/ — create a draft", "POST /api/posts/:id/approve/ — authorize publishing"],
+      "database": "Content documents retain revisions and approval history. Separate publication records track each channel’s schedule, provider identifier and delivery events.",
+      "lessons": "Concept development note: automation should make responsibility clearer. A readable timeline of who approved what is more valuable than an ambiguous green success indicator."
+    },
+    {
+      "id": 7, "slug": "government-scheme-matcher", "title": "Government Scheme Matcher", "category": "AI / CIVIC TECH", "technologies": ["React", "Django", "Python", "PostgreSQL"], "image": "/images/scheme-matcher.svg", "accent": "#c6d4a9", "featured": true,
+      "description": "Make opportunity easier to find. An accessible way to discover relevant public schemes and understand eligibility.",
+      "overview": "A civic-tech discovery concept that matches user-provided criteria to a maintained catalogue of public schemes, with plain-language explanations and official-source links.",
+      "problem": "Scheme information is scattered across departments and uses unfamiliar terminology. People can struggle to identify which criteria apply to them or whether a listing is current.",
+      "solution": "Use transparent eligibility rules to suggest potentially relevant schemes, explain each match and direct users to the official application process. Clearly distinguish a suggestion from an eligibility determination.",
+      "features": ["Guided, accessible discovery questionnaire", "Explainable criteria matching", "Official source and review-date references", "Saved scheme shortlists", "Plain-language document checklists"],
+      "architecture": ["Accessible React discovery flow", "Django scheme catalogue API", "Deterministic eligibility-rule engine", "Optional language assistance adapter", "PostgreSQL versioned scheme records"],
+      "challenges": "Rules and deadlines change, so publication dates and review status must be visible. Collecting minimal information and avoiding unsupported eligibility promises are fundamental to the experience.",
+      "api_overview": ["GET /api/schemes/ — reviewed catalogue", "POST /api/matches/ — explainable suggestions", "GET /api/schemes/:slug/ — official references and criteria"],
+      "database": "Schemes reference departments, regions and versioned eligibility criteria. Review timestamps and official URLs are stored alongside each published version.",
+      "lessons": "Concept development note: accessible language is engineering work. The questionnaire should be tested for comprehension, not just successful form submission."
+    }
+  ],
+  "product_defaults": {
+    "version": "1.0.0-preview",
+    "requirements": ["Node.js 22+ for React-based frontends", "Python 3.12+ for Django-based backends, or Node.js 22+ for Node-based backends", "PostgreSQL 15+ or the database listed for the selected project", "Your own external service credentials where applicable"],
+    "documentation": "Documentation preview: project orientation, architecture decisions, environment configuration, data model, API contracts, local setup and deployment checklist. This is an editable product concept; downloadable deliverables have not been published.",
+    "installation": ["Obtain the released package after a verified purchase when checkout is configured.", "Read the package README and install the documented runtime versions.", "Copy the included environment example and configure your own credentials.", "Install dependencies, apply database migrations and load the optional demo fixtures.", "Start the frontend and API, then follow the package verification guide."],
+    "license": "Proposed single-developer license: one personal or client end product, with modification permitted. Redistribution or resale of the source package is excluded. Final license terms must be published before purchases are enabled.",
+    "faq": [
+      { "question": "Can I buy or download this package now?", "answer": "This is a demonstration catalogue. Checkout and downloads are not enabled. Use the inquiry button to discuss availability with Karthikeyan." },
+      { "question": "Are external API credits included?", "answer": "No. AI providers, hosting, database services and any third-party API usage require your own accounts and credentials." },
+      { "question": "Can the project be customized?", "answer": "Yes, customization and deployment assistance can be discussed as a separate scope through the Custom package inquiry." },
+      { "question": "What do Source and Pro include?", "answer": "Source is intended to include the code, README and database setup. Pro adds full documentation, API references, installation and deployment guides. Confirm the published deliverables before buying." }
+    ],
+    "tier_includes": {
+      "SOURCE": ["Source code", "README", "Database schema & seed data"],
+      "PRO": ["Everything in Source", "Full documentation", "API documentation", "Installation guide", "Deployment guide"],
+      "CUSTOM": ["Everything in Pro", "Project customization", "Deployment assistance", "Scope agreed before work begins"]
+    }
+  },
+  "products": [
+    { "slug": "ai-student-analyzer", "source_price": "499.00", "pro_price": "999.00", "currency": "INR" },
+    { "slug": "intelligent-coding-platform", "source_price": "1999.00", "pro_price": "3999.00", "currency": "INR" },
+    { "slug": "campus-ai-assistant", "source_price": "1499.00", "pro_price": "2999.00", "currency": "INR" },
+    { "slug": "premium-3d-ecommerce", "source_price": "2499.00", "pro_price": "4999.00", "currency": "INR" },
+    { "slug": "business-intelligence-assistant", "source_price": "1999.00", "pro_price": "3999.00", "currency": "INR" },
+    { "slug": "social-media-automation", "source_price": "1999.00", "pro_price": "3999.00", "currency": "INR" },
+    { "slug": "government-scheme-matcher", "source_price": "1499.00", "pro_price": "2999.00", "currency": "INR" }
+  ]
+}

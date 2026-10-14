@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+# Generate sitemap.xml using: python scripts/generate_sitemap.py --base-url https://your-domain.com
