@@ -2,7 +2,7 @@
   "notice": "Editable demonstration concepts. Illustrations are interface studies, not screenshots of shipped products. Prices are illustrative. No live demos, source downloads, customer reviews or checkout are represented as available.",
   "projects": [
     {
-      "id": 1, "slug": "ai-student-analyzer", "title": "AI Student Analyzer", "category": "AI / EDTECH", "technologies": ["React", "Django", "Python", "PostgreSQL"], "image": "/images/student-analyzer.svg", "accent": "#b8a6ff", "featured": true, "live_url": "https://student-ai-analyser-ochre.vercel.app/", "source_price": "499.00", "source_currency": "INR", "download_url": "/StudentAiAnalyser.zip",
+      "id": 1, "slug": "ai-student-analyzer", "title": "AI Student Analyzer", "category": "AI / EDTECH", "technologies": ["React", "Django", "Python", "PostgreSQL"], "image": "/images/student-analyzer.svg", "accent": "#b8a6ff", "featured": true, "live_url": "https://student-ai-analyser-ochre.vercel.app/", "source_price": "499.00", "source_currency": "INR", "download_url": "https://github.com/KarthikeyanSivanesan23/karthikeyan-portfolio/raw/main/public/StudentAiAnalyser.zip",
       "description": "Turning academic data into a clearer path forward. An intelligent workspace for student insights and personalized learning.",
       "overview": "A concept for connecting academic records, learning patterns and explainable recommendations in one considered interface. The goal is to help educators see the person behind the numbers.",
       "problem": "Academic records often live in disconnected spreadsheets. Identifying students who need support becomes a manual exercise, and aggregate scores hide the context that makes intervention useful.",
