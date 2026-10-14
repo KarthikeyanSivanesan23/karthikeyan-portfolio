@@ -1,3 +1,5 @@
 # Large asset served from GitHub instead — keeps deploys fast
 public/StudentAiAnalyser.zip
 node_modules
+dist
+.git
