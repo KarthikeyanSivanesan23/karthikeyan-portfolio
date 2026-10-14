@@ -14,7 +14,7 @@ export function ProjectCard({ project, index, total, compact = false }: { projec
   const preview = <>
     <picture>
       {project.image_poster && <source media="(prefers-reduced-motion: reduce)" srcSet={project.image_poster} />}
-      <Image src={project.image} alt={`${project.title} ${project.live_url ? 'website preview' : 'interface concept'}`} />
+      <Image key={project.image} src={project.image} fallbackSrc={project.image_poster} alt={`${project.title} ${project.live_url ? 'website preview' : 'interface concept'}`} />
     </picture>
     <span className="visual-project-number">{number}</span>
     <span className="project-view-label">VIEW PROJECT <ArrowUpRight size={15} /></span>
